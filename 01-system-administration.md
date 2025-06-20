@@ -276,7 +276,7 @@ $ locate apache2.conf # Locate apache2 configuration file
 ```
 
 ### 16. File Content and Manipulation
-$
+
 ```sh
 $ split: Split files into parts.
 $ split -l 500 largefile.txt smallfile # Split file into 500-line chunks
@@ -284,4 +284,101 @@ $ sort: Sort lines in files.sort file.txt # Sort lines alphabetically
 $ sort -n numbers.txt # Sort numerically
 $ uniq: Remove duplicates from sorted files.
 $ sort file.txt | uniq # Remove duplicate lines
+```
+
+### 17. Advanced Shell Operations
+
+```sh
+$ xargs: Build and execute commands from standard input.
+  $ find . -name "*.txt" | xargs rm # Delete all .txt files
+$ tee: Read from standard input and write to standard output and files.
+  $ echo "new data" | tee file.txt # Write output to file and terminal
+```
+
+### 18. Performance Analysis
+
+```sh
+$ iostat: Display CPU and I/O statistics.
+  $ iostat -d 2 # Show disk I/O stats every 2 seconds
+$ vmstat: Report virtual memory stats.
+  $ vmstat 1 5 # Display 5 samples at 1-second intervals.
+$ sar: Collect and report system activity information.
+  $ sar -u 5 5 # Report CPU usage every 5 seconds
+```
+
+### 19. Disk and File System Analysis
+
+```sh
+$ lsblk: List block devices.
+  $ lsblk -f # Show filesystems and partitions
+$ blkid: Display block device attributes.
+  $ sudo blkid # Show UUIDs for devices
+$ ncdu: Disk usage analyzer with a TUI.
+  ncdu / # Analyze root directory space usage
+```
+
+### 20 File Compression and Decompression
+
+```sh
+$ gzip: Compress files.
+  $ gzip largefile.txt # Compress file with .gz extension
+$ gunzip: Decompress .gz files.
+  $ gunzip largefile.txt.gz # Decompress file
+$ bzip2: Compress files with higher compression than gzip.
+  $ bzip2 largefile.txt # Compress file with .bz2 extension
+```
+
+### 21. Environment Variables and Shell Management
+
+```sh
+$ env: Display all environment variables.
+$ set: Set or display shell options and variables.
+  $ set | grep PATH # Show the PATH variable
+$ unset: Remove an environment variable.
+  $ unset VAR_NAME # Remove a specific environment variable
+```
+
+### 22. System Security and Permissions
+
+```sh
+$ umask: Set default permissions for new files.
+  $ umask 022 # Set default permissions to 755 for new files
+$ chmod: Change file or directory permissions.
+  $ chmod 700 file.txt # Owner only read, write, execute
+$ chattr: Change file attributes.
+  $ sudo chattr +i file.txt # Make file immutable
+$ lsattr: List file attributes.
+  $ lsattr file.txt # Show attributes for a file
+```
+
+### 23. Troubleshooting and Debugging
+
+```sh
+$ strace: Trace system calls and signals.
+  $ strace -p 1234 # Trace process with PID 1234
+$ lsof: List open files by processes.
+  $ lsof -i :8080 # List processes using port 8080
+$ dmesg: Print kernel ring buffer messages.
+  $ dmesg | tail -10 # View last 10 kernel messages
+```
+### 24. File Transfer
+
+```sh
+$ rsync: Sync files between local and remote systems.
+ $ rsync -avz /local/dir user@remote:/remote/dir
+$ scp: Securely copy files between hosts.
+  $ scp file.txt user@remote:/path/to/destination # Copy to remote
+$ ftp: Transfer files using FTP protocol.
+  $ ftp example.com # Connect to FTP server example.com
+```
+
+### Job Management and Scheduling
+
+```sh
+$ bg: Send a job to the background.
+  $ ./script.sh & # Run a script in the background
+$ fg: Bring a background job to the foreground.
+  $ fg %1 # Bring job 1 to the foreground
+$ at: Schedule a command to run once at a specified time.
+  $ echo "echo Hello, DevOps" | at now + 2 minutes # Run in 2 minutes
 ```
